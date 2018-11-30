@@ -1,0 +1,13 @@
+#blueprints-sections .field-fields_drawer header {
+	background-color: #2f77eb;
+	color: #fff;
+}
+#blueprints-sections .field-fields_drawer header .type {
+	color: #fff;
+}
+#blueprints-sections .field-fields_drawer header .destructor {
+	color: #fff;
+}
+#blueprints-sections .field-fields_drawer header:hover h4 {
+	color: #fff;
+}

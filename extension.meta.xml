@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="fields_drawer" status="experimental" xmlns="http://getsymphony.com/schemas/extension/1.0">
+	<name>Field drawers</name>
+	<description>
+		Simple UI to better organize your content edition in Symphony.
+	</description>
+	<types>
+		<type>Field</type>
+	</types>
+	<authors>
+		<author>
+			<name github="fhamon" symphony="fhamon" twitter="FrederickHamon">Frédérick Hamon</name>
+		</author>
+		<author>
+			<name github="DeuxHuitHuit" symphony="nitriques" twitter="DeuxHuitHuit">Deux Huit Huit</name>
+			<website>https://deuxhuithuit.com/</website>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.1.0" date="2018-11-29" min="4.0.0" max="4.x.x">
+			- Initial release
+		</release>
+	</releases>
+</extension>
