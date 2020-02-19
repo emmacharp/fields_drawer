@@ -2,7 +2,7 @@
 
 	'use strict';
 
-	var SLIDE_DELAY = 200;
+	var SLIDE_DELAY = 0;
 
 	var sels = {
 		sidebar: 'fieldset.secondary.column',
