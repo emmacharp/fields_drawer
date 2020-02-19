@@ -1,59 +1,84 @@
-#publish.has-drawers fieldset.secondary.column {
-	border-left: 1px solid #E1EBF2;
-	padding-left: 0;
-	min-height: calc(100vh - 6rem);
-	margin-bottom: 0;
-	margin-top: -1px;
+.fields-drawer-ctn, .field-fields_drawer {
+	max-width: var(--standard-field-max-width);
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#publish.has-drawers fieldset.secondary.column > .field:first-of-type {
-	margin-top: 3rem;
+.fields-drawer-ctn:first-of-type, .field-fields_drawer:first-of-type {
+	border-top-left-radius: var(--field-stack-border-radius);
+	border-top-right-radius: var(--field-stack-border-radius);
 }
 
-#publish.has-drawers fieldset.secondary.column > .field {
-	padding: 0 3rem;
+.fields-drawer-ctn:last-of-type, .field-fields_drawer:last-of-type {
+	border-bottom-left-radius: var(--field-stack-border-radius);
+	border-bottom-right-radius: var(--field-stack-border-radius);
 }
 
-#publish.has-drawers #contents {
-	padding: 0;
-}
-
-.has-drawers .fields-drawer-trigger {
-	background-color: #fff;
-	padding: 1rem 3rem;
-	box-sizing: border-box;
-	font-size: 2rem;
-	font-weight: 300;
-	color: #657685;
-	cursor: pointer;
-	user-select: none;
-	transition: ease-out background-color 200ms;
-	border-top: 1px solid #E1EBF2;
+.fields-drawer-ctn .fields-drawer-trigger, .field-fields_drawer {
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+	background-color: var(--standard-field-background-color);
+	padding: var(--spacing-thinnest) var(--standard-inner-rhythm);
+	border: 1px solid var(--color-ui);
+	font-weight: 640;
+	font-size: var(--standard-label-font-size);
+	color: var(--color-main);
 	position: relative;
+	cursor: n-resize;
+	box-sizing: border-box;
+	margin-bottom: -1px;
 }
 
-.has-drawers .fields-drawer-ctn .fields-drawer-trigger::after {
+.fields-drawer-ctn.is-closed .fields-drawer-trigger {
+	border-radius: inherit;
+	cursor: s-resize;
+}
+
+.fields-drawer-ctn:not(.is-closed) .fields-drawer-trigger {
+	background-image: linear-gradient(to bottom, rgba(0,0,0,.06), rgba(0,0,0,.06));
+}
+
+.fields-drawer-ctn .field:first-of-type {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.fields-drawer-ctn:not(:last-of-type) .field:last-of-type {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.fields-drawer-ctn .fields-drawer-trigger::after {
 	content: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNMTEuMzU3MSA3LjA0QzExLjIxOTcgNy42OCAxMC42NzAzIDggMTAuMTIwOCA4TDEuODc5MTcgOEMxLjMyOTczIDggMC43ODAyODcgNy42OCAwLjY0MjkyNyA3LjA0QzAuMzY4MjA1IDYuNCAwLjUwNTU2NiA1Ljc2IDAuOTE3NjQ5IDUuMjhMNS4wMzg0OCAwLjQ4MDAwMkM1LjMxMzIgMC4xNjAwMDIgNS41ODc5MiAxLjM2NjQ0ZS0wNiA2IDEuNDM4NDllLTA2QzYuNDEyMDggMS41MTA1NGUtMDYgNi42ODY4MSAwLjE2MDAwMiA2Ljk2MTUzIDAuNDgwMDAyTDExLjA4MjQgNS4yOEMxMS40OTQ0IDUuNzYgMTEuNjMxOCA2LjQgMTEuMzU3MSA3LjA0WiIgZmlsbD0iI0FGQzhEOSIvPg0KPC9zdmc+');
 	position: absolute;
-	right: 3rem;
+	right: var(--standard-inner-rhythm);
+	margin-right: 2px;
 	top: 50%;
-	transform: translateY(-50%) rotate(180deg);
-	transition: ease-out transform 200ms;
+	transform: translateY(-50%) scaleY(-1);
+	transition: ease-out transform var(--duration-shortest);
 }
 
-.has-drawers .fields-drawer-ctn.is-opened .fields-drawer-trigger::after {
+.fields-drawer-ctn.is-opened .fields-drawer-trigger::after {
 	transform: translateY(-50%);
 }
 
-.has-drawers .fields-drawer-ctn.is-closed .fields-drawer-trigger {
-	background-color: #F5F8FA;
-}
-
-.has-drawers .fields-drawer-ctn .fields-drawer-fields-ctn {
-	padding: 3rem 3rem 0 3rem;
+.fields-drawer-ctn .fields-drawer-fields-ctn {
 	box-sizing: border-box;
 }
 
-.has-drawers .fields-drawer-ctn.is-closed .fields-drawer-trigger {
-	background-color: #F5F8FA;
+/* Loading states --------*/
+html:not(.js-active) .field-fields_drawer:before {
+	content: attr(data-name)
+}
+
+html:not(.js-active) .field-fields_drawer:not([data-open="yes"])~.field:not(.field-fields_drawer) {
+	/*position: absolute;*/
+	border: 0;
+	/*margin: 0;*/
+	/*visibility: hidden;*/
+	opacity: 0;
+	pointer-events: none;
+	width: 0;
+	height: 0;
 }

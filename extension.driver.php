@@ -30,7 +30,7 @@
             // publish page
             if($c['driver'] == 'publish'){
                 Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/fields_drawer/assets/publish.fields_drawer.css');
-                Administration::instance()->Page->addScriptToHead(URL . '/extensions/fields_drawer/assets/publish.fields_drawer.js');
+                Administration::instance()->Page->addScriptToBody(URL . '/extensions/fields_drawer/assets/publish.fields_drawer.js');
             }
 
             if ($c['driver'] == 'blueprintssections') {
